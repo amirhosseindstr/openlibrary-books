@@ -32,7 +32,7 @@ openlibrary-books/
 ## Installation
 
 ```bash
-git clone https://github.com/USERNAME/openlibrary-books.git
+git clone https://github.com/amirhosseindstr/openlibrary-books.git
 cd openlibrary-books
 
 # (recommended) create a virtual environment
@@ -124,7 +124,7 @@ openlibrary-books/
 ## نصب
 
 ```bash
-git clone https://github.com/USERNAME/openlibrary-books.git
+git clone https://github.com/amirhosseindstr/openlibrary-books.git
 cd openlibrary-books
 
 # (پیشنهادی) ساخت محیط مجازی
