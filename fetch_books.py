@@ -1,16 +1,11 @@
-"""Fetch 50 books from the OpenLibrary API, keep those published after 2000,
-sort them by year and save the result to a CSV file."""
-
 import csv
 import sys
-
 import requests
 
 API_URL = "https://openlibrary.org/search.json"
 OUTPUT_FILE = "books.csv"
 BOOK_COUNT = 50
 MIN_YEAR = 2000
-
 
 def fetch_books(query="programming", limit=BOOK_COUNT):
     """Return a list of raw book records from the OpenLibrary search API."""
@@ -22,7 +17,6 @@ def fetch_books(query="programming", limit=BOOK_COUNT):
     response = requests.get(API_URL, params=params, timeout=30)
     response.raise_for_status()
     return response.json().get("docs", [])
-
 
 def clean_and_filter(docs, min_year=MIN_YEAR):
     """Keep only books published after min_year and normalize the fields."""
@@ -41,14 +35,12 @@ def clean_and_filter(docs, min_year=MIN_YEAR):
         )
     return sorted(books, key=lambda b: b["year"])
 
-
 def save_csv(books, path=OUTPUT_FILE):
     """Write the books to a CSV file."""
     with open(path, "w", newline="", encoding="utf-8") as f:
         writer = csv.DictWriter(f, fieldnames=["title", "author", "year", "link"])
         writer.writeheader()
         writer.writerows(books)
-
 
 def main():
     try:
